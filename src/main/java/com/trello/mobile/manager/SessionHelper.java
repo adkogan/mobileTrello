@@ -21,7 +21,8 @@ public class SessionHelper extends HelperBase {
 
 
     public void initLogin() {
-       waitForElementLocatedAndClick(By.id("log_in_button"), 10);
+       waitForElementLocatedAndClick(By.id("log_in_button"), 10); //исправить локатор
+      // waitForElementLocatedAndClick(By.xpath("//*[@resource-id='com.trello:id/log_in_button']"), 10);
     }
 
     public void fillLoginForm(String userEmail, String password) {

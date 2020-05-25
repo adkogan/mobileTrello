@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class HelperBase {
     AppiumDriver driver;
@@ -54,6 +55,12 @@ public class HelperBase {
 
     public boolean isElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
+    }
+
+    public boolean waitForElementsPresent(By locator, int timeout){
+     List <WebElement>elements = new WebDriverWait(driver, timeout)
+             .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+     return elements.size()>0;
     }
 
     public void takeScreenshot(long timeMillis){
