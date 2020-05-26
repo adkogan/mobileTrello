@@ -21,6 +21,7 @@ public class ApplicationManager {
     SessionHelper session;
  //   ProfileHelper profile;
     Properties properties;
+    WelcomePage welcome;
 
 //    public ApplicationManager(
 //            String browser,
@@ -60,9 +61,9 @@ public class ApplicationManager {
 
         String target = System.getProperty("target", "local");
        // properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
-
+        welcome = new WelcomePage(driver);
         session = new SessionHelper(driver);
-        session.login(properties.getProperty("web.user"), properties.getProperty("web.pwd"));
+      //  session.login(properties.getProperty("web.user"), properties.getProperty("web.pwd"));
 
 // Thread.sleep(2000);
 
@@ -91,6 +92,10 @@ public class ApplicationManager {
 
     public SessionHelper getSession() {
         return session;
+    }
+
+    public WelcomePage getWelcome(){
+        return welcome;
     }
 
 //    public TeamHelper getTeam() {
